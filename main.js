@@ -13,8 +13,18 @@ const {autoUpdater} = require("electron-updater");
 // This logging setup is not required for auto-updates to work,
 // but it sure makes debugging easier :)
 //-------------------------------------------------------------------
+process.env.GH_TOKEN = '6563a429be88e4ed449fd34dff21aa0ef46b3696';
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
+
+autoUpdater.setFeedURL({
+  provider: 'github',
+  token: '6563a429be88e4ed449fd34dff21aa0ef46b3696',
+  repo: 'electron-updater-example',
+  owner: 'jasonHuang2019'
+});
+
+
 log.info('App starting...');
 
 //-------------------------------------------------------------------
